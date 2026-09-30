@@ -1,0 +1,1991 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #168cff;
+    --light-blue: #50c8ff;
+    --cyan: #00d9ff;
+    --deep-blue: #06152f;
+    --black: #02040a;
+
+    --glass: rgba(255, 255, 255, 0.075);
+    --glass-border: rgba(255, 255, 255, 0.15);
+
+    --white: #ffffff;
+    --muted: rgba(255,255,255,.65);
+}
+
+
+/* =========================================
+   GENERAL
+========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family: "Inter", sans-serif;
+
+    color: var(--white);
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #063d75 0%,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #004c78 0%,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #02040a 0%,
+            #061a38 45%,
+            #02050c 100%
+        );
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            125deg,
+            #02040a,
+            #061b3c,
+            #02040a
+        );
+}
+
+
+.liquid {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(45px);
+
+    opacity: .55;
+
+    animation: float 14s ease-in-out infinite;
+}
+
+
+.liquid-1 {
+
+    width: 420px;
+    height: 420px;
+
+    left: -160px;
+    top: -100px;
+
+    background:
+        radial-gradient(
+            circle,
+            #008cff,
+            #0041a3,
+            transparent 70%
+        );
+}
+
+
+.liquid-2 {
+
+    width: 500px;
+    height: 500px;
+
+    right: -200px;
+    top: 20%;
+
+    background:
+        radial-gradient(
+            circle,
+            #00c8ff,
+            #0050b5,
+            transparent 70%
+        );
+
+    animation-delay: -4s;
+}
+
+
+.liquid-3 {
+
+    width: 370px;
+    height: 370px;
+
+    bottom: -130px;
+    left: 25%;
+
+    background:
+        radial-gradient(
+            circle,
+            #005dff,
+            #0b1e55,
+            transparent 70%
+        );
+
+    animation-delay: -8s;
+}
+
+
+.glow {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(110px);
+
+    opacity: .3;
+}
+
+
+.glow-1 {
+
+    width: 300px;
+    height: 300px;
+
+    background: #009dff;
+
+    top: 30%;
+    left: 40%;
+}
+
+
+.glow-2 {
+
+    width: 250px;
+    height: 250px;
+
+    background: #00e5ff;
+
+    bottom: 5%;
+    right: 5%;
+}
+
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translate3d(0,0,0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(35px,-35px,0) scale(1.08);
+    }
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 35px 20px;
+}
+
+
+/* =========================================
+   GLASS CARD
+========================================= */
+
+.business-card {
+
+    width: 100%;
+
+    max-width: 470px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 30px;
+
+    border-radius: 34px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.13),
+            rgba(255,255,255,.035)
+        );
+
+    border:
+        1px solid var(--glass-border);
+
+    backdrop-filter: blur(35px);
+
+    -webkit-backdrop-filter: blur(35px);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.65),
+        inset 0 1px 1px rgba(255,255,255,.15);
+}
+
+
+.glass-shine {
+
+    position: absolute;
+
+    width: 600px;
+    height: 180px;
+
+    top: -110px;
+    left: -100px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.13),
+            transparent
+        );
+
+    transform: rotate(-20deg);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   TOP BUTTONS
+========================================= */
+
+.top-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.icon-btn {
+
+    width: 43px;
+    height: 43px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(255,255,255,.16);
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    backdrop-filter: blur(10px);
+
+    transition: .3s;
+}
+
+
+.icon-btn:hover {
+
+    transform:
+        translateY(-3px)
+        rotate(5deg);
+
+    background:
+        rgba(22,140,255,.35);
+
+    border-color:
+        rgba(72,184,255,.6);
+
+    box-shadow:
+        0 0 25px rgba(0,160,255,.3);
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.profile {
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 5px;
+}
+
+
+.brand-logo {
+
+    width: 125px;
+    height: 125px;
+
+    margin: 0 auto 18px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.18),
+            rgba(0,125,255,.15)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    box-shadow:
+        0 0 40px rgba(0,153,255,.35),
+        inset 0 0 30px rgba(255,255,255,.08);
+
+    backdrop-filter: blur(20px);
+}
+
+
+.logo-glow {
+
+    position: absolute;
+
+    inset: 8px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,200,255,.25),
+            transparent 65%
+        );
+
+    filter: blur(4px);
+}
+
+
+.logo-content {
+
+    position: relative;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    letter-spacing: -3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #5ecbff,
+            #168cff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.profile h1 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 31px;
+
+    margin-bottom: 8px;
+}
+
+
+.profession {
+
+    display: inline-block;
+
+    color: #61c8ff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.short-bio {
+
+    max-width: 340px;
+
+    margin: 13px auto 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   CONTACT BUTTONS
+========================================= */
+
+.contact-buttons {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 10px;
+
+    margin-top: 28px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.contact-btn {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 78px;
+
+    padding: 13px 8px;
+
+    border-radius: 17px;
+
+    color: white;
+
+    text-decoration: none;
+
+    background:
+        rgba(255,255,255,.065);
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    backdrop-filter: blur(15px);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+
+.contact-btn:hover {
+
+    transform: translateY(-4px);
+
+    background:
+        rgba(20,140,255,.18);
+
+    border-color:
+        rgba(72,184,255,.35);
+
+    box-shadow:
+        0 10px 30px rgba(0,120,255,.15);
+}
+
+
+.btn-icon {
+
+    font-size: 19px;
+
+    color: #4bbaff;
+}
+
+
+.whatsapp-icon {
+
+    color: #25d366;
+}
+
+
+.email-icon {
+
+    color: #4bbaff;
+}
+
+
+/* =========================================
+   SOCIAL
+========================================= */
+
+.social-section {
+
+    margin-top: 30px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.social-section h2 {
+
+    font-size: 14px;
+
+    margin-bottom: 13px;
+}
+
+
+.social-section h2 i {
+
+    color: #42baff;
+
+    margin-right: 7px;
+}
+
+
+.social-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 10px;
+}
+
+
+.social {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    min-height: 60px;
+
+    padding: 12px;
+
+    border-radius: 15px;
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    transition: .3s;
+}
+
+
+.social:hover {
+
+    transform: translateY(-3px);
+
+    background:
+        rgba(255,255,255,.1);
+
+    border-color:
+        rgba(70,180,255,.3);
+}
+
+
+.social-icon {
+
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.facebook {
+
+    background: rgba(24,119,242,.15);
+
+    color: #4a9cff;
+}
+
+
+.instagram {
+
+    background: rgba(225,48,108,.13);
+
+    color: #ff65a0;
+}
+
+
+.tiktok {
+
+    background: rgba(255,255,255,.1);
+
+    color: white;
+}
+
+
+.whatsapp {
+
+    background: rgba(37,211,102,.12);
+
+    color: #2ee875;
+}
+
+
+.social > span:nth-child(2) {
+
+    flex: 1;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.arrow {
+
+    font-size: 8px;
+
+    color: rgba(255,255,255,.35);
+}
+
+
+/* =========================================
+   BUSINESS INFO
+========================================= */
+
+.business-info {
+
+    display: grid;
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+
+.info-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+}
+
+
+.info-icon {
+
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: #50c8ff;
+
+    background:
+        rgba(0,145,255,.12);
+}
+
+
+.info-item small {
+
+    display: block;
+
+    color:
+        rgba(255,255,255,.4);
+
+    font-size: 9px;
+
+    margin-bottom: 3px;
+}
+
+
+.info-item p {
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   UTILITY BUTTONS
+========================================= */
+
+.utility-buttons {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+
+.utility-btn {
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    border-radius: 15px;
+
+    padding: 14px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    transition: .3s;
+}
+
+
+.utility-btn i {
+
+    color: #4dbfff;
+}
+
+
+.utility-btn:hover {
+
+    background:
+        rgba(0,140,255,.2);
+
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(70,185,255,.35);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(255,255,255,.08);
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size: 10px;
+}
+
+
+.secure {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 7px;
+
+    color:
+        rgba(90,190,255,.65);
+}
+
+
+/* =========================================
+   QR MODAL
+========================================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,5,15,.78);
+
+    backdrop-filter: blur(15px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s;
+
+    z-index: 1000;
+}
+
+
+.modal.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.modal-content {
+
+    width: 100%;
+
+    max-width: 360px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,45,80,.97),
+            rgba(3,9,20,.99)
+        );
+
+    border:
+        1px solid rgba(100,200,255,.2);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.7);
+
+    transform: scale(.9);
+
+    transition: .3s;
+}
+
+
+.modal.active .modal-content {
+
+    transform: scale(1);
+}
+
+
+.close-btn {
+
+    display: block;
+
+    margin-left: auto;
+
+    width: 35px;
+    height: 35px;
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+.modal-icon {
+
+    width: 55px;
+    height: 55px;
+
+    margin: 5px auto 15px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        rgba(0,150,255,.15);
+
+    color: #53c5ff;
+
+    font-size: 23px;
+}
+
+
+.modal-content h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 22px;
+}
+
+
+.modal-content p {
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    margin: 8px 0 20px;
+}
+
+
+#modalQRCode {
+
+    width: 220px;
+    height: 220px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 5px;
+}
+
+
+.copy-link {
+
+    margin-top: 20px;
+
+    padding: 12px 18px;
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    border-radius: 13px;
+
+    background:
+        rgba(0,145,255,.2);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   TOAST
+========================================= */
+
+.toast {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    transform:
+        translate(-50%,100px);
+
+    background:
+        rgba(5,15,30,.95);
+
+    border:
+        1px solid rgba(70,180,255,.25);
+
+    color: white;
+
+    padding: 13px 20px;
+
+    border-radius: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 11px;
+
+    opacity: 0;
+
+    transition: .3s;
+
+    z-index: 2000;
+}
+
+
+.toast.show {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%,0);
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .page {
+        padding: 8px;
+    }
+
+
+    .business-card {
+        padding: 20px 15px;
+        border-radius: 24px;
+    }
+
+
+    .brand-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+
+    .logo-content {
+        font-size: 34px;
+    }
+
+
+    .profile h1 {
+        font-size: 25px;
+    }
+
+
+    .short-bio {
+        font-size: 12px;
+    }
+
+
+    .social {
+        padding: 10px;
+    }
+
+
+    .social > span:nth-child(2) {
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================
+   STANDARD PHONES
+========================================= */
+
+@media (min-width: 381px) and (max-width: 600px) {
+
+    .page {
+        padding: 15px;
+    }
+
+
+    .business-card {
+        max-width: 500px;
+    }
+
+}
+
+
+/* =========================================
+   IPAD / TABLETS
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .page {
+
+        padding: 45px 30px;
+    }
+
+
+    .business-card {
+
+        max-width: 600px;
+
+        padding: 38px;
+
+        border-radius: 38px;
+    }
+
+
+    .brand-logo {
+
+        width: 140px;
+        height: 140px;
+    }
+
+
+    .logo-content {
+
+        font-size: 47px;
+    }
+
+
+    .profile h1 {
+
+        font-size: 35px;
+    }
+
+
+    .short-bio {
+
+        max-width: 450px;
+
+        font-size: 14px;
+    }
+
+
+    .contact-btn {
+
+        min-height: 90px;
+
+        font-size: 13px;
+    }
+
+
+    .social {
+
+        min-height: 70px;
+
+        padding: 15px;
+    }
+
+
+    .social > span:nth-child(2) {
+
+        font-size: 13px;
+    }
+
+
+    .business-info {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .utility-btn {
+
+        padding: 16px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================
+   LAPTOP / DESKTOP
+========================================= */
+
+@media (min-width: 1025px) {
+
+    .page {
+
+        padding: 50px;
+    }
+
+
+    .business-card {
+
+        max-width: 520px;
+
+        padding: 35px;
+    }
+
+
+    .business-card:hover {
+
+        box-shadow:
+            0 50px 120px rgba(0,0,0,.7),
+            0 0 40px rgba(0,130,255,.08),
+            inset 0 1px 1px rgba(255,255,255,.15);
+    }
+
+
+    .brand-logo {
+
+        width: 135px;
+        height: 135px;
+    }
+
+
+    .logo-content {
+
+        font-size: 45px;
+    }
+
+
+    .profile h1 {
+
+        font-size: 34px;
+    }
+
+
+    .short-bio {
+
+        font-size: 14px;
+    }
+
+
+    .contact-btn {
+
+        min-height: 82px;
+    }
+
+
+    .social {
+
+        min-height: 64px;
+    }
+
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1440px) {
+
+    .business-card {
+
+        max-width: 560px;
+
+        padding: 40px;
+    }
+
+
+    .profile h1 {
+
+        font-size: 36px;
+    }
+
+
+    .social-grid {
+
+        gap: 12px;
+    }
+
+
+    .contact-buttons {
+
+        gap: 12px;
+    }
+
+}
+/* =========================================
+   QR CODE POPUP
+========================================= */
+
+.qr-modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 4, 15, 0.78);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+
+    z-index: 9999;
+}
+
+
+.qr-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* QR CONTENT */
+
+.qr-modal-content {
+
+    position: relative;
+
+    width: min(92vw, 430px);
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 35, 70, 0.96),
+            rgba(2, 7, 18, 0.98)
+        );
+
+    border: 1px solid rgba(80, 200, 255, 0.35);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.65),
+        0 0 50px rgba(0, 140, 255, 0.18);
+
+    transform: scale(0.75) translateY(30px);
+
+    transition:
+        transform 0.4s cubic-bezier(.17,.67,.3,1.3);
+
+    overflow: hidden;
+}
+
+
+.qr-modal.active .qr-modal-content {
+
+    transform: scale(1) translateY(0);
+
+}
+
+
+/* CLOSE BUTTON */
+
+.close-qr {
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.close-qr:hover {
+
+    background: rgba(255, 70, 100, 0.2);
+
+    transform: rotate(90deg);
+
+}
+
+
+/* QR ICON */
+
+.qr-icon {
+
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #168cff,
+            #00d9ff
+        );
+
+    color: white;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 150, 255, 0.35);
+
+}
+
+
+.qr-modal-content h2 {
+
+    margin: 0;
+
+    font-family: "Playfair Display", serif;
+
+    color: white;
+
+    font-size: 30px;
+
+}
+
+
+.qr-subtitle {
+
+    margin: 8px auto 22px;
+
+    max-width: 320px;
+
+    color: rgba(255,255,255,0.7);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* QR WHITE DISPLAY */
+
+.qr-display {
+
+    width: 270px;
+    height: 270px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.35),
+        0 0 35px rgba(0,190,255,0.2);
+
+}
+
+
+#modalQRCode {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+#modalQRCode img,
+#modalQRCode canvas {
+
+    max-width: 100%;
+    max-height: 100%;
+
+    display: block;
+
+}
+
+
+/* SCAN TEXT */
+
+.scan-text {
+
+    margin: 5px 0 22px;
+
+    color: rgba(255,255,255,0.65);
+
+    font-size: 13px;
+
+}
+
+
+.scan-text i {
+
+    color: #50c8ff;
+
+    margin-right: 5px;
+
+}
+
+
+/* SHARE BUTTON */
+
+.qr-share-btn,
+.qr-copy-btn {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 14px 18px;
+
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.qr-share-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #168cff,
+            #00d9ff
+        );
+
+    color: white;
+
+    box-shadow:
+        0 10px 25px rgba(0, 150, 255, 0.25);
+
+}
+
+
+.qr-copy-btn {
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    color: white;
+
+}
+
+
+.qr-share-btn:hover,
+.qr-copy-btn:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+.qr-share-btn i,
+.qr-copy-btn i {
+
+    margin-right: 7px;
+
+}
+
+
+/* PREVENT PAGE SCROLL WHEN POPUP IS OPEN */
+
+body.modal-open {
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .qr-modal {
+
+        padding: 15px;
+
+    }
+
+
+    .qr-modal-content {
+
+        padding: 30px 18px 22px;
+
+        border-radius: 24px;
+
+    }
+
+
+    .qr-modal-content h2 {
+
+        font-size: 26px;
+
+    }
+
+
+    .qr-display {
+
+        width: 245px;
+        height: 245px;
+
+        padding: 17px;
+
+    }
+
+}
+
+
+/* =========================================
+   TABLET / IPAD
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .qr-modal-content {
+
+        width: 440px;
+
+        padding: 40px 30px;
+
+    }
+
+
+    .qr-display {
+
+        width: 285px;
+        height: 285px;
+
+    }
+
+}
+/* =========================================
+   TOP QR BUTTON - LIQUID GLASS CIRCLE
+========================================= */
+
+.top-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Circular QR button */
+
+.qr-glass-btn {
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    /* Transparent liquid glass */
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.18),
+            rgba(255, 255, 255, 0.04)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.28);
+
+    /* Glass blur */
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    /* Soft glass depth */
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.30),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.18),
+        0 8px 25px rgba(0, 0, 0, 0.22),
+        0 0 18px rgba(0, 160, 255, 0.12);
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Glass reflection */
+
+.qr-glass-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 70%;
+    height: 35%;
+
+    top: 5%;
+    left: 15%;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.25),
+            transparent
+        );
+
+    filter: blur(5px);
+
+    pointer-events: none;
+}
+
+
+/* QR icon */
+
+.qr-glass-btn i {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #ffffff;
+
+    filter:
+        drop-shadow(0 0 6px rgba(80, 200, 255, 0.75));
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+
+/* Hover */
+
+.qr-glass-btn:hover {
+
+    transform: translateY(-3px) scale(1.07);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(22, 140, 255, 0.25),
+            rgba(0, 217, 255, 0.10)
+        );
+
+    border-color:
+        rgba(80, 200, 255, 0.50);
+
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.35),
+        0 12px 30px rgba(0, 120, 255, 0.28),
+        0 0 25px rgba(0, 217, 255, 0.22);
+}
+
+
+.qr-glass-btn:hover i {
+
+    transform: rotate(8deg) scale(1.08);
+
+    filter:
+        drop-shadow(0 0 10px rgba(80, 220, 255, 1));
+
+}
+
+
+/* Click */
+
+.qr-glass-btn:active {
+
+    transform: scale(0.94);
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .qr-glass-btn {
+
+        width: 46px;
+        height: 46px;
+
+        font-size: 17px;
+
+    }
+
+}
+
+
+/* =========================================
+   IPAD / TABLET
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .qr-glass-btn {
+
+        width: 52px;
+        height: 52px;
+
+        font-size: 20px;
+
+    }
+
+}
